@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Page - Layout Peta</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: #f7f9fc;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(135deg, rgba(0, 41, 82, 0.8), rgba(0, 115, 230, 0.7)),
+                  url("https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-size: 50px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .btn-primary {
+    padding: 14px 35px;
+    background: #1a73e8;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: 0.25s ease;
+    border: 1px solid #1a73e8;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background: #fff;
+    color: #1a73e8;
+    border-color: #1a73e8;
+}
+
+    .btn-primary:hover {
+      background: #125bb5;
+    }
+
+    /* MAP PREVIEW */
+    .map-preview {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .preview-card {
+      max-width: 850px;
+      margin: auto;
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .preview-img {
+      width: 100%;
+      max-width: 400px;
+      object-fit: cover;
+    }
+
+    .preview-info {
+      padding: 25px;
+      flex: 1;
+      text-align: left;
+    }
+
+    .preview-info h3 {
+      margin-bottom: 10px;
+      color: #1a73e8;
+    }
+
+    .preview-info p {
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    /* FEATURES */
+    .features {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .features h2 {
+      font-size: 32px;
+      color: #1a4d8f;
+      margin-bottom: 50px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .feature-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      transition: 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .feature-card img {
+      width: 60px;
+      margin-bottom: 20px;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 10px;
+      color: #1a73e8;
+    }
+
+    /* CREATOR */
+    .creator-section {
+      margin: 80px auto;
+      max-width: 850px;
+      text-align: center;
+    }
+
+    .creator-card {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .creator-avatar img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 5px solid #1a73e8;
+      object-fit: cover;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: #1a4d8f;
+      padding: 25px;
+      text-align: center;
+      color: #fff;
+      margin-top: 80px;
+    }
+    /* ANIMATIONS */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all .8s ease;
+  }
+  .fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  
+  .btn-primary::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: rgba(255,255,255,0.25);
+    transition: width .35s ease;
+    z-index: -1;
+  }
+  .btn-primary:hover::after {
+    width: 100%;
+  }
+  .btn-primary::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.25);
+    transition: left .4s ease;
+  }
+  .btn-primary:hover::after {
+    left: 100%;
+  }
+
+  /* CARD HOVER ANIMATION */
+  .feature-card, .preview-card, .creator-card {
+    transition: .4s ease;
+  }
+  .feature-card:hover, .preview-card:hover, .creator-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  }
+
+  /* RESPONSIVE IMPROVEMENT */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 36px; }
+    .preview-card { flex-direction: column; text-align:center; }
+    .preview-info { text-align:center; }
+    .creator-card { flex-direction: column; text-align:center; }
+  }
+</style>
+</head>
+
+<body>
+<script>
+  // Intersection Observer for fade-in animations
+  document.addEventListener('DOMContentLoaded', () => {
+    const elements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.2 });
+
+    elements.forEach(el => observer.observe(el));
+  });
+</script>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <h1>Peta Tematik Zona Rawan Banjir Di Kecamatan Lowokwaru</h1>
+      <a href="#features" class="btn-primary">Jelajahi Fitur</a>
+    </div>
+  </section>
+
+  <!-- PREVIEW -->
+  <section class="map-preview fade-in">
+    <h2>Preview Peta</h2>
+
+    <div class="preview-card">
+      <img src="images/layout-peta.jpg" alt="Preview Peta" class="preview-img" />
+
+      <div class="preview-info">
+        <h3>Zona Rawan Banjir Lowokwaru</h3>
+        <p>Pratinjau layout peta tematik sebelum melihat versi interaktif.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features fade-in" id="features">
+    <h2>Peta Tematik</h2>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <img src="images/map.png" alt="Map Icon" />
+        <h3>Peta Zona Rawan Banjir</h3>
+        <p>Peta tematik interaktif yang menampilkan sebaran zona rawan banjir di Kecamatan Lowokwaru.</p>
+
+        <a href="peta.html" class="btn-primary" style="display:inline-flex; align-items:center; gap:8px; margin-top:15px;">
+          <img src="images/location.png" style="width:20px; filter:invert(1);" alt="Location" />
+          Lihat Peta
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREATOR -->
+  <section class="creator-section fade-in">
+    <h2>Data Pembuat Peta</h2>
+
+    <div class="creator-card">
+      <div class="creator-avatar">
+        <img src="images/profil.jpg" alt="Avatar" />
+      </div>
+
+      <div class="creator-info">
+        <h3>Rangga Yoga Budi Setyawan</h3>
+        <p>23201006</p>
+        <p>Kontak: ranggayoga38@gmail.com</p>
+        <p>Program Studi: Teknik Informatika - Institut Asia Malang</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>Dibuat Oleh Rangga Yoga • Menggunakan Plugin qgis2web</p>
+  </footer>
+
+</body>
+</html>
